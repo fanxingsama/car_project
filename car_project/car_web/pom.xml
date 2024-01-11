@@ -55,6 +55,12 @@
             <optional>true</optional>
         </dependency>
 
+        <dependency>
+            <groupId>org.common</groupId>
+            <artifactId>api_common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
 
     </dependencies>
 

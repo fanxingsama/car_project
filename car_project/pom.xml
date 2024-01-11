@@ -13,6 +13,7 @@
   <inceptionYear>2001</inceptionYear>
     <modules>
         <module>car_web</module>
+        <module>api_common</module>
     </modules>
 
     <distributionManagement>

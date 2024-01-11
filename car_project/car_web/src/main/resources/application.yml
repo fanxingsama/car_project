@@ -4,6 +4,10 @@ server:
 spring:
   datasource:
     username: root
-    password: 15290682086
-    url: jdbc:mysql://localhost:3306/springboot_mybatis
+    password: 152906820wd
+    url: jdbc:mysql://localhost:3306/car_project?useUnicode=true&useSSL=false
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: org.example.entities
