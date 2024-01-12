@@ -5,13 +5,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @author 马云龙
- * @create 2024-01-06 15:01
+ * @description <功能描述>
+ * @author: 马云龙
+ * @Date: 2024/1/12 16:29
  */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MaintainOrder {
+public class PurchaseOrder {
     private Integer id;
     private Integer carId;
     private Integer userId;
@@ -27,5 +29,5 @@ public class MaintainOrder {
     private String shopPhone; // 4s店的电话
     private String creatTime;
     private String endTime;
-    private String orderType; // 当前订单的状态,等待订单接收/订单处理中/车辆维修中/车辆维修完成/订单完成
+    private String orderType;
 }
