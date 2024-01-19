@@ -5,9 +5,9 @@ spring:
   datasource:
     username: root
     password: 152906820wd
-    url: jdbc:mysql://localhost:3306/car_project?useUnicode=true&useSSL=false
+    url: jdbc:mysql://localhost:3306/car_project?useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:
-  mapper-locations: classpath:mapper/*.xml
+  mapper-locations: classpath:Mapper/*.xml
   type-aliases-package: org.example.entities

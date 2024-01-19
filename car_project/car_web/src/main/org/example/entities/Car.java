@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Car {
     private Integer id;
-    private String name;
-    private String type;
+    private String carName;
+    private String carType;
     private String price;
     private String img;
 }

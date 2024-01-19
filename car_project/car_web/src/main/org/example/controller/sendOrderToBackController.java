@@ -18,6 +18,6 @@ public class sendOrderToBackController
 
     private RestTemplate restTemplate;
 
-    public CommonResult<CarOrder>
+//    public CommonResult<CarOrder>
 
 }
