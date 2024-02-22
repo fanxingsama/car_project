@@ -1,0 +1,13 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    username: root
+    password: 152906820wd
+    url: jdbc:mysql://localhost:3306/car_project?useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  type-aliases-package: org.example.entities
+  mapper-locations: classpath:mapper/*.xml
