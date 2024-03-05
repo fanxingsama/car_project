@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.example.dao.UserMapper">
+    <select id="getUserInfo" resultType="org.example.entities.User" parameterType="String">
+        select * from User where accountName = #{accountName};
+    </select>
+
+    <select id="getUserPassword" resultType="String" parameterType="String">
+        select password from User where accountName = #{accountName};
+    </select>
+
+    <insert id="accountRegister" parameterType="org.example.entities.User">
+        insert into User(userName, accountName, password, phone, address, userIDNumber, bandIDNumber)
+        values (#{userName}, #{accountName}, #{password}, #{phone}, #{address}, #{userIDNumber}, #{bandIDNumber})
+    </insert>
+
+    <select id="checkUserById" resultType="org.example.entities.User" parameterType="String">
+        select * from User where userIDNumber = #{userIDNumber};
+    </select>
+
+    <select id="checkUserByAccountName" resultType="org.example.entities.User" parameterType="String">
+        select * from User where accountName = #{accountName};
+    </select>
+
+    <update id="changeUserInfo" parameterType="org.example.entities.User">
+        update user
+        <set>
+            <if test="userName != null">userName = #{userName},</if>
+            <if test="accountName != null">accountName = #{accountName},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="address != null">address = #{address},</if>
+            <if test="IDNumber != null">userIDNumber = #{userIDNumber},</if>
+            <if test="bandIDNumber != null">bandIDNumber = #{bandIDNumber},</if>
+        </set>
+        WHERE userName = #{userName};
+    </update>
+
+    <update id="changePassword" parameterType="org.example.entities.User">
+        update user set password = #{password} where userName = #{userName};
+    </update>
+
+</mapper>

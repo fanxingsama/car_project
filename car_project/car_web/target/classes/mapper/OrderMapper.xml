@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.example.dao.OrderMapper">
+    <insert id="insertOrder" parameterType="org.example.entities.CarOrder">
+        insert into
+            car_order(
+                           carId, carType, carName,
+                           userId, userName, userPhone, userAddress,
+                           shopId, shopName, shopAddress, shopPhone,
+                           salesManId, salesManName,
+                           price, action, creatTime, orderType)
+        select
+            c.id,
+            c.carType,
+            c.carName,
+            u.id,
+            u.accountName,
+            u.phone,
+            u.address,
+            cs.Id,
+            cs.shopName,
+            cs.address,
+            cs.phone,
+            csm.Id,
+            csm.salesManName,
+            #{price},
+            #{action},
+            #{creatTime},
+            #{orderType}
+        from user u,
+             car c,
+             sales_man csm,
+             car_shop cs
+        where c.id = #{carId} and u.id = #{userId} and cs.Id = #{shopId} and csm.Id = #{salesManId}
+    </insert>
+
+    <select id="getAllPurchaseOrder" resultType="org.example.entities.CarOrder" parameterType="integer">
+        select * from car_order where userId = #{userid} and action = 'purchase';
+    </select>
+
+    <select id="getAllRepairOrder" resultType="org.example.entities.CarOrder" parameterType="integer">
+        select * from car_order where userId = #{userid} and action = 'repair';
+    </select>
+
+    <select id="getAllMaintainOrder" resultType="org.example.entities.CarOrder" parameterType="integer">
+        select * from car_order where userId = #{userid} and action = 'maintain';
+    </select>
+
+    <select id="getOrderInfo" resultType="org.example.entities.CarOrder" parameterType="integer">
+        select * from car_order where id = #{orderId};
+    </select>
+
+</mapper>

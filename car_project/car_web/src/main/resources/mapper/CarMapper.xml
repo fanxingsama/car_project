@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.example.dao.CarMapper">
+    <select id="getCarByType" resultType="org.example.entities.Car" parameterType="String">
+        select * from Car where carType = #{carType};
+    </select>
+
+    <select id="getCarInfo" resultType="org.example.entities.Car" parameterType="integer">
+        select * from Car where id = #{getCarInfo};
+    </select>
+
+    <select id="getCarByUser" resultType="org.example.entities.Car" parameterType="integer">
+        select c.carName, c.carType, c.color, c.level, c.img from car c inner join user_car u on c.id = u.carId where u.userId = #{userId}
+    </select>
+
+    <select id="getCarInfoByColor" resultType="org.example.entities.Car" parameterType="org.example.entities.Car">
+        select * from car where id = #{id} and color = #{color};
+    </select>
+
+    <select id="getCarInfoByLevel" resultType="org.example.entities.Car" parameterType="org.example.entities.Car">
+        select * from car where id = #{id} and level = #{level};
+    </select>
+
+    <select id="getCarServicePrice" resultType="integer" parameterType="map">
+        select servicePrice from service_price where carType = ${carType} and action = #{action};
+    </select>
+
+
+</mapper>
